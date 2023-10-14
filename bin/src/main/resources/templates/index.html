@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Posto de Saúde Web</title>
+</head>
+<body>
+	<h1>Bem vindo ao Posto de Saúde Web</h1>
+	
+	<div class="paciente-wrapper">
+		<form method="GET" action="pacienteIndex">
+			<input type="submit" value="Area Paciente">
+		</form>
+	</div>
+
+	<div class="medico-wrapper">
+		<form method="GET" action="medicoIndex">
+			<input type="submit" value="Area Medico">
+		</form>
+	</div>
+
+	<div class="admin-wrapper">
+		<form method="GET" action="adminIndex">
+			<input type="submit" value="Area Admin">
+		</form>
+	</div>
+
+</body>
+</html>

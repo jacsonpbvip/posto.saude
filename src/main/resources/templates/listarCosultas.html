@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Consultas</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listagem de Consultas</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data e Hora</th>
+            <th>Status</th>
+            <th>ID do Paciente</th>
+            <th>ID do Médico</th>
+        </tr>
+        <tr th:each="consulta : ${consultas}">
+            <td th:text="${consulta.idConsulta}"></td>
+            <td th:text="${consulta.dataHora}"></td>
+            <td th:text="${consulta.status}"></td>
+            <td th:text="${consulta.paciente.idPaciente}"></td>
+            <td th:text="${consulta.medico.idMedicos}"></td>
+        </tr>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posto de Saúde Web</title> 
+
+</head>
+
+<body>
+    <header class="header">
+        <h1>Bem-vindo ao Posto de Saúde Web</h1>
+    </header>
+    <nav>
+        <ul class="left-menu">
+            <li><a th:href="@{/cadastrarBairro}">Cadastrar Bairro</a></li>
+            <li><a th:href="@{/cadastrarPaciente}">Cadastrar Pacientes</a></li>
+            <li><a th:href="@{/cadastrarMedicos}">Cadastrar Medico</a></li>          
+            <li><a th:href="@{/cadastrarEspecialidade}">Cadastrar Especialidade</a></li>
+            <li><a th:href="@{/cadastrarConsulta}">Cadastrar Consulta</a></li>
+            
+            
+        </ul>
+    </nav>
+
+    <nav>
+        <ul class="right-menu">
+            <li><a th:href="@{/listarBairros}">Listar Bairro</a></li>
+            <li><a th:href="@{/listarPacientes}">Listar Pacientes</a></li>
+            <li><a th:href="@{/listarMedicos}">Listar Medico</a></li>           
+            <li><a th:href="@{/listarEspecialidades}">Listar Especialidade</a></li>
+            <li><a th:href="@{/listarConsultas}">Listar Consultas</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <p>Selecione uma opção acima para começar.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Posto de Saúde Web</p>
+    </footer>
+</body>
+
+</html>
