@@ -23,6 +23,20 @@
 
 		}
 
+		.title-form h2 {
+
+			position: relative;
+			font-size: 10px;
+			text-align: center;
+			line-height: 1.5em;
+			padding-bottom: 45px;
+			font-family: "Open Sans", sans;
+			text-transform: uppercase;
+			letter-spacing: 6px;
+			color: #ffffff;
+
+		}
+
 
 		.title-form h1:before {
 
@@ -327,9 +341,32 @@
 
 		.input-balao-up,
 		.textarea-balao-up {
-			text-align: center;			
+			text-align: center;
 		}
 	</style>
+
+	<script>
+		var dataInput = document.getElementById('data');
+
+		dataInput.addEventListener('input', function () {
+			var selectedDate = new Date(dataInput.value);
+
+			// 09:00 e 17:00 no mesmo dia)
+			var minDate = new Date(selectedDate);
+			minDate.setHours(9, 0, 0, 0);
+
+			var maxDate = new Date(selectedDate);
+			maxDate.setHours(17, 0, 0, 0);
+
+
+			if (selectedDate < minDate || selectedDate > maxDate) {
+
+				dataInput.setCustomValidity('Atenção nossos horários de atendimento são entre 09:00 e 17:00.');
+			} else {
+				dataInput.setCustomValidity('');
+			}
+		});
+	</script>
 </head>
 
 <body>
@@ -337,31 +374,40 @@
 		<div class="formulario">
 			<div class="title-form">
 				<h1>Cadastrar Consulta</h1>
+				<h2>Horários de atendimento são entre 09:00 e 17:00</h2>
 			</div>
-	
+
 			<span>
 				<select class="input-balao-up" id="idPaciente" name="idPaciente">
 					<option value="0">Selecione um Paciente</option>
 					<option th:each="paciente : ${pacientes}" th:value="${paciente.id}"
 						th:text="${paciente.nome + ' ' + paciente.sobrenome}"></option>
 				</select>
-				<label for="idPaciente"> <i class="icon icon-user-outline"></i> </label>
+				<label for="idPaciente">Paciente</i> </label>
 			</span>
-	
+
 			<span>
 				<select class="input-balao-up" id="idMedicos" name="idMedicos">
 					<option value="0">Selecione um Médico</option>
 					<option th:each="medico : ${medicos}" th:value="${medico.id}"
 						th:text="${medico.nome + ' ' + medico.sobrenome}"></option>
 				</select>
-				<label for="idMedicos"> <i class="icon icon-user-outline"></i> </label>
+				<label for="idMedicos">Medico </i> </label>
 			</span>
-	
+
 			<span>
 				<input type="datetime-local" class="input-balao-up" id="data" name="data" required />
-				<label for="data"> <i class="icon icon-calendar"></i> </label>
+				<label for="data">Horario</label>
 			</span>
-	
+
+			<span>
+				<select class="input-balao-up" id="status" name="status">
+					<option value="Agendada">Agendada</option>					
+				</select>
+				<label for="status">Status da Consulta</label>
+			</span>
+
+
 			<div class="box-btn">
 				<button type="submit" class="btn-envia zoom-shadow">
 					<i class="icon icon-forward-1"> Cadastrar</i>
@@ -369,7 +415,7 @@
 			</div>
 		</div>
 	</form>
-	
+
 </body>
 
 </html>

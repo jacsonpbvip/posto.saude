@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import br.edu.utfpr.td.tsi.posto.saude.dao.BairroDAO;
 import br.edu.utfpr.td.tsi.posto.saude.dao.EnderecoDAO;
 import br.edu.utfpr.td.tsi.posto.saude.dao.PacienteDAO;
-import br.edu.utfpr.td.tsi.posto.saude.exceptions.CPFExistenteException;
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Bairro;
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Paciente;
 
@@ -26,7 +25,7 @@ public class Pacientecontroller {
 	private BairroDAO bairroDAO;
 
 	@PostMapping(value = "/cadastrarPaciente")
-	public String cadastrar(Paciente paciente, String cpf) throws CPFExistenteException {
+	public String cadastrar(Paciente paciente, String cpf){
 		pacienteDAO.inserir(paciente);
 		enderecoDAO.inserir(paciente.getEndereco(), paciente);
 		return "index";

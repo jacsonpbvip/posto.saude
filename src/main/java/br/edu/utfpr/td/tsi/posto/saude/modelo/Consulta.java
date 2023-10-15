@@ -96,5 +96,8 @@ public class Consulta {
 		this.idPaciente = idPaciente;
 	}
 
+    public void setStatus(String string) {
+    }
+
 	
 }

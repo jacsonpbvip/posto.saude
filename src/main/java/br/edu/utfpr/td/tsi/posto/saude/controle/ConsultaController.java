@@ -12,7 +12,6 @@ import br.edu.utfpr.td.tsi.posto.saude.dao.ConsultaDAO;
 import br.edu.utfpr.td.tsi.posto.saude.dao.MedicoDAO;
 import br.edu.utfpr.td.tsi.posto.saude.dao.PacienteDAO;
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Consulta;
-import br.edu.utfpr.td.tsi.posto.saude.modelo.Especialidade;
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Medicos;
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Paciente;
 
@@ -36,19 +35,16 @@ public class ConsultaController {
 		return "cadastrarConsulta";
 	}
 
-	@PostMapping(value = "cadastrarConsulta")
+	@PostMapping(value = "/cadastrarConsulta")
 	public String cadastrarConsulta(Consulta consulta) {
 		consultaDAO.inserir(consulta);
-
 		return "index";
 	}
 
 	@GetMapping(value = "/listarConsultas")
-	public String listarEspecialidades(Model model) {
+	public String listar(Model model) {
 		List<Consulta> consultas = consultaDAO.listarTodos();
 		model.addAttribute("consultas", consultas);
-		
 		return "listarConsultas";
-
 	}
 }
