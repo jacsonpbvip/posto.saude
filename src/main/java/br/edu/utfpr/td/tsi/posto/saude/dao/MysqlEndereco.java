@@ -2,8 +2,6 @@ package br.edu.utfpr.td.tsi.posto.saude.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.UUID;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +39,5 @@ public class MysqlEndereco implements EnderecoDAO {
 			e.printStackTrace();
 		}
 	}
-
-	private String generateUUID() {
-		return UUID.randomUUID().toString();
-	}
+	
 }
