@@ -25,7 +25,7 @@ public class Pacientecontroller {
 	private BairroDAO bairroDAO;
 
 	@PostMapping(value = "/cadastrarPaciente")
-	public String cadastrar(Paciente paciente, String cpf){
+	public String cadastrar(Paciente paciente){
 		pacienteDAO.inserir(paciente);
 		enderecoDAO.inserir(paciente.getEndereco(), paciente);
 		return "index";

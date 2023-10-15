@@ -8,8 +8,7 @@ public interface PacienteDAO {
 	public void inserir(Paciente paciente);
 
 
-	public List<Paciente> listarTodos();
+	public List<Paciente> listarTodos();	
 	
-	public boolean procurar(String cpf);
 }
 

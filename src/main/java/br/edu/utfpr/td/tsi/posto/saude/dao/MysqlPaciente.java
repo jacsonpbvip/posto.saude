@@ -73,31 +73,7 @@ private DataSource datasource;
 		}
 		
 		return pacientes;
-	}
-	
-	
-	@Override
-	public boolean procurar(String cpf) {
-	    try {
-	        Connection conn = datasource.getConnection();
-	        String sql = "SELECT cpf FROM Paciente WHERE cpf = ?";
-	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, cpf);
-	        ResultSet rs = pstmt.executeQuery();
-
-	        boolean cpfEncontrado = rs.next(); // Verifica se encontrou algum registro com o CPF
-
-	        rs.close();
-	        pstmt.close();
-	        conn.close();
-
-	        return cpfEncontrado; // Retorna true se encontrou o CPF, caso contrário retorna false
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return false; // Em caso de erro, também retorne false
-	    }
-	}
-		
+	}	
 
 }
 
