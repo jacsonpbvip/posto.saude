@@ -5,9 +5,10 @@
 	<meta charset="UTF-8">
 	<title>Posto de Saúde Web</title>
 	<style>
-		body{
-			background-color:  #7bd7fc;
+		body {
+			background-color: #7bd7fc;
 		}
+
 		.title-form h1 {
 
 			position: relative;
@@ -323,56 +324,76 @@
 			-webkit-transform: scale(1.1);
 			transform: scale(1.1);
 		}
+
+		.input-balao-up,
+		.textarea-balao-up {
+			text-align: center;			
+		}
 	</style>
 </head>
 
 <body>
-	<div class="box-formulario">
-		<div class="formulario">
-			<div class="title-form">
-				<h1>Cadastrar Paciente</h1>
-			</div>
+    <div class="box-formulario">
+        <div class="formulario">
+            <div class="title-form">
+                <h1>Cadastrar Paciente</h1>
+            </div>
 
-			<form method="POST" action="cadastrarPaciente">
-				<span>
-					<input type="text" class="input-balao-up" id="nome" name="nome" placeholder="Nome"
-						autocomplete="off" required="" />
-					<label for="nome"> <i class="icon icon-user-outline"></i> </label>
-				</span>
+            <form method="POST" action="cadastrarPaciente">
+                <span>
+                    <input type="text" class="input-balao-up" id="nome" name="nome" placeholder="" required="" />
+                    <label for="nome">Nome:</label>
+                </span>
 
-				<span>
-					<input type="text" class="input-balao-up" id="sobrenome" name="sobrenome" placeholder="Sobrenome"
-						autocomplete="off" required="" />
-					<label for="sobrenome"> <i class="icon icon-user-outline"></i> </label>
-				</span>
+                <span>
+                    <input type="text" class="input-balao-up" id="sobrenome" name="sobrenome" placeholder="" required="" />
+                    <label for="sobrenome">Sobrenome:</label>
+                </span>
 
-				<span>
-					<input type="text" class="input-balao-up" id="telefone" name="telefone" placeholder="Telefone"
-						autocomplete="off" required="" />
-					<label for="telefone"> <i class="icon icon-phone-3"></i> </label>
-				</span>
+                <span>
+                    <input type="text" class="input-balao-up" id="telefone" name="telefone" placeholder="" required="" />
+                    <label for="telefone">Telefone:</label>
+                </span>
 
-				<span>
-					<input type="text" class="input-balao-up" id="email" name="email" placeholder="E-mail"
-						autocomplete="off" required="" />
-					<label for="email"> <i class="icon icon-mail-3"></i> </label>
-				</span>
+                <span>
+                    <input type="text" class="input-balao-up" id="email" name="email" placeholder="" required="" />
+                    <label for="email">Email:</label>
+                </span>
 
-				<span>
-					<input type="text" class="input-balao-up" id="cpf" name="cpf" placeholder="CPF" autocomplete="off"
-						required="" />
-					<label for="cpf"> <i class="icon icon-info"></i> </label>
-				</span>
+                <span>
+                    <input type="text" class="input-balao-up" id="cpf" name="cpf" placeholder="" required="" />
+                    <label for="cpf">CPF:</label>
+                </span>
 
-				<div class="box-btn">
-					<button type="submit" class="btn-envia zoom-shadow">
-						<i class="icon icon-forward-1"></i> Cadastrar
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+                <span>
+                    <input type="text" class="input-balao-up" id="logradouro" name="endereco.logradouro" placeholder="" />
+                    <label for="logradouro">Logradouro:</label>
+                </span>
 
+                <span>
+                    <input type="text" class="input-balao-up" id="numero" name="endereco.numero" placeholder="" />
+                    <label for="numero">Número:</label>
+                </span>
+
+                <span>
+                    <input type="text" class="input-balao-up" id="cep" name="endereco.cep" placeholder="" />
+                    <label for="cep">CEP:</label>
+                </span>
+
+                <span>
+                    <select class="input-balao-up" id="bairro" name="endereco.bairro.id">
+                        <option value="0">Escolha um bairro</option>
+                        <option th:each="bairro : ${bairros}" th:value="${bairro.id}" th:text="${bairro.nome}"></option>
+                    </select>
+                    <label for="bairro">Bairro:</label>
+                </span>
+
+                <div class="box-btn">
+                    <button type="submit" class="btn-envia zoom-shadow">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

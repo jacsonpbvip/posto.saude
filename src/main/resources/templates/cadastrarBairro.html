@@ -324,6 +324,11 @@
 			-webkit-transform: scale(1.1);
 			transform: scale(1.1);
 		}
+
+		.input-balao-up,
+		.textarea-balao-up {
+			text-align: center;			
+		}
 	</style>
 </head>
 
@@ -335,9 +340,8 @@
 			</div>
 			<form method="POST" action="cadastrarBairro">
 				<span>
-					<input type="text" class="input-balao-up" id="nome" name="nome" placeholder="Nome do Bairro"
-						required />
-					<label for="nome"> <i class="icon icon-user-outline"></i> </label>
+					<input type="text" class="input-balao-up" id="nome" name="nome" placeholder="" required="" />
+					<label for="nome">Nome Bairro</label>:</label>
 				</span>
 				<div class="box-btn">
 					<button type="submit" class="btn-envia zoom-shadow">
