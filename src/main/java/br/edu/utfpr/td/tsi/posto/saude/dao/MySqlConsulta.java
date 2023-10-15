@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 import javax.sql.DataSource;
 
@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.edu.utfpr.td.tsi.posto.saude.modelo.Consulta;
-import br.edu.utfpr.td.tsi.posto.saude.modelo.Especialidade;
+
 
 @Component
 public class MySqlConsulta implements ConsultaDAO {
