@@ -8,7 +8,19 @@ public class Consulta {
 	private String id;
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private LocalDateTime Data;
-	private Status statusConsulta;
+	private String status;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String string) {
+		this.status = string;
+	}
+
+
+
+
 	private String idMedicos;
 	private String idPaciente;
 	
@@ -17,11 +29,11 @@ public class Consulta {
 		
 	}
 	
-	public Consulta(String id, LocalDateTime data, Status statusConsulta, String idMedicos, String idPaciente) {
+	public Consulta(String id, LocalDateTime data, String status, String idMedicos, String idPaciente) {
 		super();
 		this.id = id;
 		this.Data = data;
-		this.statusConsulta = statusConsulta;
+		this.status = status;
 		this.idMedicos = idMedicos;
 		this.idPaciente = idPaciente;
 	}
@@ -57,17 +69,7 @@ public class Consulta {
 
 
 
-	public Status getStatusConsulta() {
-		return statusConsulta;
-	}
-
-
-
-
-	public void setStatusConsulta(Status statusConsulta) {
-		this.statusConsulta = statusConsulta;
-	}
-
+	
 
 
 
@@ -95,9 +97,7 @@ public class Consulta {
 	public void setIdPaciente(String idPaciente) {
 		this.idPaciente = idPaciente;
 	}
-
-    public void setStatus(String string) {
-    }
+  
 
 	
 }

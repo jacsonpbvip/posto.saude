@@ -68,16 +68,16 @@
 
         <table>
             <tr>
-                <th class="top">ID</th>
+                
                 <th class="top">Data e Hora</th>
                 <th class="top">Status</th>
                 <th class="top">ID do Paciente</th>
                 <th class="top">ID do Médico</th>
             </tr>
             <tr th:each="consulta : ${consultas}">
-                <td th:text="${consulta.id}"></td>
+                
                 <td th:text="${consulta.Data}"></td>
-                <td th:text="${consulta.statusConsulta}"></td>
+                <td th:text="${consulta.status}"></td>
                 <td th:text="${consulta.idPaciente}"></td>
                 <td th:text="${consulta.idMedicos}"></td>
             </tr>

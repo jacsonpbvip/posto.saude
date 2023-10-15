@@ -21,22 +21,14 @@ public class MysqlEspecialidade implements EspecialidadeDAO {
     private DataSource dataSource;
 
     @Override
-    public void inserir(Especialidade especialidade) {
-        long idEspecialidade = 0;
+    public void inserir(Especialidade especialidade) {        
         String sql = "INSERT INTO especialidade (descricao) VALUES (?)";
         try {
             Connection conn = dataSource.getConnection();
             PreparedStatement preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
             preparedStatement.setString(1, especialidade.getDescricao());
-
-            preparedStatement.executeUpdate();
-
-            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                idEspecialidade = generatedKeys.getLong(1);
-            }
-
+            preparedStatement.executeUpdate();          
+            
             conn.close();
             preparedStatement.close();
 
@@ -88,7 +80,7 @@ public class MysqlEspecialidade implements EspecialidadeDAO {
 
     @Override
     public Especialidade procurar(String idEspecialidade) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'procurar'");
     }
 

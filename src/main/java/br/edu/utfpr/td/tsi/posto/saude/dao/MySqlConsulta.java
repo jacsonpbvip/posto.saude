@@ -84,9 +84,9 @@ public List<Consulta> listarTodos() {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT data_hora, Status, Paciente_idPaciente, Medicos_idMedicos FROM Consulta");
         while (rs.next()) {
-            Consulta consulta = new Consulta(); // Crie uma nova instância de Consulta
+            Consulta consulta = new Consulta(); 
+			
 
-            // Configure a instância Consulta com os dados do banco de dados
             consulta.setData(rs.getTimestamp("data_hora").toLocalDateTime());
             consulta.setStatus(rs.getString("Status"));
             consulta.setIdPaciente(rs.getString("Paciente_idPaciente"));
