@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posto de Saúde Web</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".toggle-list").click(function (e) {
+                e.preventDefault();
+                var targetMenu = $(this).next(".submenu");
+                $(".submenu").not(targetMenu).slideUp();
+                targetMenu.slideToggle();
+            });
+        });
+        $(document).ready(function () {
+
+            function loadPage(url) {
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    dataType: "html",
+                    success: function (data) {
+                        $("#content").html(data);
+                    },
+                    error: function () {
+                        alert("Ocorreu um erro ao carregar a página.");
+                    }
+                });
+            }
+
+
+            $("nav a").click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href");
+                loadPage(url);
+            });
+        });
+    </script>
+    <style>
+        body {
+            background-color: #7bd7fc;
+        }
+
+        .title-form h1 {
+
+            position: relative;
+            font-size: 30px;
+            text-align: center;
+            line-height: 1.5em;
+            padding-bottom: 45px;
+            font-family: "Open Sans", sans;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #ffffff;
+
+        }
+
+        .navbar .navbar-brand {
+            margin-right: 60px;
+        }
+
+        .navbar .dropdown-menu a:hover {
+            color: #565555 !important;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgb(2, 13, 196);
+            background: linear-gradient(80deg, rgb(71, 79, 236) 0%, rgba(0, 198, 235, 1) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Remova as bordas da navbar */
+        .custom-navbar {
+            margin: 5px;
+            background: rgb(2, 13, 196);
+            background: linear-gradient(80deg,  rgb(71, 79, 236) 0%, rgba(0, 198, 235, 1) 100%);
+        }
+
+        .custom-navbar .navbar-nav {
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .custom-navbar .navbar-nav li {
+            margin: 2px;
+            display: inline;
+        }
+
+        .custom-navbar .navbar-nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .custom-navbar .navbar-nav a:hover {
+            background-color: #007BFF;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Botões Cadastrar -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastrarBairro}">Cadastrar Bairro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastrarPaciente}">Cadastrar Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastrarMedicos}">Cadastrar Medico</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastrarEspecialidade}">Cadastrar Especialidade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cadastrarConsulta}">Cadastrar Consulta</a>
+                </li>
+                <!-- Botões Listar -->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/listarBairros}">Listar Bairro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/listarPacientes}">Listar Pacientes</a>
+                </li>
+                <li class "nav-item">
+                    <a class="nav-link" th:href="@{/listarMedicos}">Listar Medico</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/listarEspecialidades}">Listar Especialidade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/listarConsultas}">Listar Consultas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="content">
+        <div class="title-form">
+            <h1>Bem vindo a tela de administração</h1>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2023 Posto de Saúde Web</p>
+    </footer>
+</body>
+
+</html>

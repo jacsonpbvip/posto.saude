@@ -15,7 +15,6 @@ br\edu\utfpr\td\tsi\posto\saude\modelo\Doenca.class
 br\edu\utfpr\td\tsi\posto\saude\modelo\Diagnostico.class
 br\edu\utfpr\td\tsi\posto\saude\Main.class
 br\edu\utfpr\td\tsi\posto\saude\dao\BairroDAO.class
-br\edu\utfpr\td\tsi\posto\saude\modelo\Status.class
 br\edu\utfpr\td\tsi\posto\saude\dao\MysqlEndereco.class
 br\edu\utfpr\td\tsi\posto\saude\modelo\Endereco.class
 br\edu\utfpr\td\tsi\posto\saude\dao\MysqlMedico.class

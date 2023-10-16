@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posto de Saúde Web</title>
+    <style>
+        body {
+            background: #7bd7fc;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin: 20px 0;
+        }
+
+        .style-tabela {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        th.top {
+            background: #00B6FF;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        th, td {
+            border: 2px solid #00B6FF;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background: #f4f4f4;
+        }
+
+        tr:hover {
+            background: #f1fafb;
+        }
+    </style>
+</head>
+<div class="style-tabela">
+    <h1>Bairros cadastrados</h1>
+    <table>
+        <tr>
+            <th class="top">ID</th>
+            <th class="top">Nome</th>
+        </tr>
+        <tr th:each="bairro : ${bairros}">
+            <td th:text="${bairro.id}"></td>
+            <td th:text="${bairro.nome}"></td>
+        </tr>
+    </table>
+</div>
+
+</html>
